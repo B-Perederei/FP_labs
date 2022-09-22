@@ -1,0 +1,7 @@
+(defun delete_numbers (list lower_limit upper_limit)
+    (cond ((null list) list)
+         ((<= (car list) lower_limit) (delete_numbers (cdr list) lower_limit upper_limit)) 
+         ((>= (car list) upper_limit) (delete_numbers (cdr list) lower_limit upper_limit))
+         (t (cons (car list) (delete_numbers (cdr list) lower_limit upper_limit)))))
+(write-line "Delete elements from list, which is in given interval")
+(write (delete_numbers '(7 5 8 12 45 81 92 9 5 1 0 23 25) '7 '25))
